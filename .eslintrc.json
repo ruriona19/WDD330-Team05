@@ -11,7 +11,7 @@
     "sourceType": "module"
   },
   "rules": {
-    "no-unused-vars": [       
+    "no-unused-vars": [
       1,
       {
         "argsIgnorePattern": "res|next|^err"
@@ -33,7 +33,7 @@
     "comma-dangle": 0,
     "max-len": 0,
     "import/extensions": 0,
-    "import/namespace":0,
+    "import/namespace": 0,
     "no-underscore-dangle": 0,
     "consistent-return": 0,
     "radix": 0,
