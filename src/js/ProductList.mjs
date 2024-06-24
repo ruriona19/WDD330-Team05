@@ -1,7 +1,9 @@
 import { renderListWithTemplate } from "./utils.mjs";
 
 function productCardTemplate(product) {
-    return `<li class="product-card">
+  let htmlString = "";
+  if (product.ImageAvailable) {
+    htmlString = `<li class="product-card">
       <a href="product_pages/index.html?product=${product.Id}">
         <img src="${product.Image}" alt="Image of ${product.Name}">
         <h3 class="card__brand">${product.NameWithoutBrand}</h3>
@@ -10,6 +12,8 @@ function productCardTemplate(product) {
       </a>
     </li>`;
   }
+  return htmlString; 
+}
 
 export default class ProductListing {
     constructor(category, dataSource, listElement) {
