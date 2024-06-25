@@ -22,7 +22,7 @@ export default class ProductListing {
         const list = await this.dataSource.getData();
         this.renderList(list);
       }
-      renderList(list) {
+      (list) {
         renderListWithTemplate(productCardTemplate, this.listElement, list);
       }
     

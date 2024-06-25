@@ -13,7 +13,7 @@ export function getParams() {
   return product;
 }
 
-export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false)
+export function WithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false)
 {
   const htmlStrings = list.map(templateFn);
   // if clear is true we need to clear out the contents of the parent.
