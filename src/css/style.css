@@ -101,6 +101,18 @@ button {
   padding-top: 1em;
   position: relative;
   text-align: center;
+  display: inline-block;
+}
+
+.cart sup {
+  font-size: 14px;
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
+  border-radius: 50%;
+  padding: 2px 6px;
 }
 
 .cart svg {
@@ -149,6 +161,18 @@ button {
 
 .card__brand {
   font-size: var(--small-font);
+}
+
+
+.remove-btn {
+  position: absolute;
+  background-color: var(--primary-color);
+  color: var(--dark-grey);
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5em;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 .card__name {
