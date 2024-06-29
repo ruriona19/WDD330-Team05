@@ -13,6 +13,14 @@ export function getParams() {
   return product;
 }
 
+// helper to get parameter strings
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param);
+  return product;
+}
+
 export function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = false) {
   const htmlStrings = list.map(templateFn);
   // if clear is true we need to clear out the contents of the parent.

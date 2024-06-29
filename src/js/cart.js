@@ -1,4 +1,3 @@
-
 import ShoppingCart from "./ShoppingCart.mjs";
 import { loadHeaderFooter } from "./utils.mjs";
 import getBackpackItems from "./backpack.js";
@@ -17,6 +16,7 @@ async function initialize() {
       }
     });
   } catch (error) {
+    /* eslint-disable no-console */
     console.error("Error loading header and footer:", error);
   }
 }
@@ -26,8 +26,3 @@ document.querySelector("button").addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", initialize);
-
-
-
-
-
