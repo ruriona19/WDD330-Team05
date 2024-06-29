@@ -7,7 +7,7 @@ export default class ProductDetails {
   }
 
   init() {
-    this.renderProductDetails();
+    this.renderProductDetails(this.dataSource);
   }
 
   addToCart(product) {
@@ -34,7 +34,7 @@ export default class ProductDetails {
     pClassification.innerHTML = this.dataSource["NameWithoutBrand"];
     pColor.innerHTML = this.dataSource["Colors"][0]["ColorName"];
     pPrice.innerHTML = this.dataSource["FinalPrice"];
-    img.src = this.dataSource["Image"];
+    img.src = this.dataSource["Images"]["PrimaryLarge"];
     img.alt = this.dataSource["Name"];
     discount.innerHTML = `%${discountAmount} off`
     btn.setAttribute('data-id', this.dataSource["Id"]);
