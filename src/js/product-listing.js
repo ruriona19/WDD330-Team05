@@ -3,7 +3,7 @@ import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, getParam } from "./utils.mjs";
 import getBackpackItems from "./backpack.js";
 
-await loadHeaderFooter();
+loadHeaderFooter();
 
 const category = getParam("category");
 // first create an instance of our ProductData class.
