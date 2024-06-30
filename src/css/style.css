@@ -194,7 +194,6 @@ button {
   font-size: var(--small-font);
 }
 
-
 .remove-btn {
   position: absolute;
   background-color: var(--primary-color);
