@@ -1,3 +1,5 @@
+import getBackpackItems from "./backpack.js";
+
 // wrapper for querySelector...returns matching element
 export function qs(selector, parent = document) {
   return parent.querySelector(selector);
@@ -49,8 +51,9 @@ export async function loadHeaderFooter() {
   const footerTemplate = await loadTemplate("../partials/footer.html");
   const footerElement = document.querySelector("#main-footer");
 
-  renderWithTemplate(headerTemplate, headerElement),
-  renderWithTemplate(footerTemplate, footerElement)
+  await renderWithTemplate(headerTemplate, headerElement);
+  await renderWithTemplate(footerTemplate, footerElement);
+  await getBackpackItems();
 
 }
 

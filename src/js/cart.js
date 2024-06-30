@@ -7,6 +7,7 @@ async function initialize() {
     await loadHeaderFooter();
     getBackpackItems();
     const cart = new ShoppingCart("so-cart", ".product-list");
+
     cart.renderCartContents();
 
     document.addEventListener("click", function (event) {
