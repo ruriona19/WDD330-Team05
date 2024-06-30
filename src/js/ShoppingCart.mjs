@@ -49,7 +49,7 @@ export default class ShoppingCart {
       htmlItems.push(cartItemTemplate(item, index));
     });
     document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
-    const total = itemMap.reduce((acc, item) => acc + item.FinalPrice, 0);
+    const total = cartItems.reduce((acc, item) => acc + item.FinalPrice, 0);
     document.querySelector(".cart-total").innerHTML =
       `<p>Total: $${total.toFixed(2)}</p>`;
   }
