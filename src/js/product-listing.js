@@ -1,7 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, getParam } from "./utils.mjs";
-import getBackpackItems from "./backpack.js";
 
 loadHeaderFooter();
 
@@ -14,4 +13,3 @@ const listElement = document.querySelector(".product-list");
 const myList = new ProductList(category, dataSource, listElement);
 // finally call the init method to show our products
 myList.init();
-getBackpackItems();
