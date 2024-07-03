@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const productData = await dataSource.findProductById(productId);
 
   const productDetails = new ProductDetails(productId, productData);
-  productDetails.init();
+  await productDetails.init();
 
   document
     .getElementById("addToCart")

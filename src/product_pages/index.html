@@ -20,23 +20,21 @@
     <main class="divider">
       <section class="product-detail">
         <h3 id="product_name"></h3>
-
         <h2 id="product_classification" class="divider"></h2>
-
         <img class="divider" id="product_image" />
-        <div class="discount"></div>
-        <p class="product-card__price"></p>
-
-        <p class="product__color"></p>
-
         <p class="product__description"></p>
-
+        <p class="product__color"></p>
+        <div class="product-price-discount">
+          <p class="product-card__price" id="productFinalPrice"></p>
+          <p class="line-through" id="suggestedRetailPrice"></p>
+        </div>
+        <p class="product-card__price"></p>
         <div class="product-detail__add">
           <button id="addToCart">Add to Cart</button>
         </div>
+        <div id="discountFlag"></div>
       </section>
     </main>
-
     <footer id="main-footer"></footer>
   </body>
 </html>
