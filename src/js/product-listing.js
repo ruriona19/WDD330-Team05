@@ -1,7 +1,6 @@
 import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
 import { loadHeaderFooter, getParam } from "./utils.mjs";
-import getBackpackItems from "./backpack.js";
 
 loadHeaderFooter();
 
@@ -24,4 +23,3 @@ breadcrumbs.innerHTML = `${myList.category}--->${number_items.length} items`
 
 
 myList.init();
-getBackpackItems();
