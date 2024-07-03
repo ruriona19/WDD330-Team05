@@ -13,5 +13,15 @@ const listElement = document.querySelector(".product-list");
 // then create an instance of our ProductList class and send it the correct information.
 const myList = new ProductList(category, dataSource, listElement);
 // finally call the init method to show our products
+
+
+// ----------------------------------------
+console.log(myList);
+const breadcrumbs = document.querySelector(".breadcrumbs");
+const number_items = await dataSource.getData(category);
+breadcrumbs.innerHTML = `${myList.category}--->${number_items.length} items`
+// -----------------------------------------
+
+
 myList.init();
 getBackpackItems();
