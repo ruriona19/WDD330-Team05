@@ -9,10 +9,17 @@
     <script src="../js/checkout.js" type="module"></script>
     <script src="../js/backpack.js" type="module"></script>
   </head>
+
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider checkout">
       <h2>Review & Place your Order</h2>
+      <h3>
+        <i
+          >The Order Summary will only appear after you complete your shipping
+          information</i
+        >
+      </h3>
       <section class="checkout-form">
         <form name="checkout">
           <fieldset>
@@ -86,43 +93,52 @@
           </fieldset>
           <fieldset>
             <legend>Payment</legend>
-            <label class="form-label"
-              >Card Number
+            <label class="form-label">
+              Card Number
               <input
                 type="text"
                 name="cardNumber"
                 id="cardNumber"
                 minlength="16"
-                pattern="^[0-9]{16}"
+                maxlength="16"
+                pattern="[0-9]{16}"
                 placeholder="1234123412341234"
                 required
               />
             </label>
-            <label class="form-label"
-              >Expiration
+            <label class="form-label">
+              Expiration
               <input
                 type="text"
                 name="expiration"
                 id="expiration"
+                maxlength="5"
+                pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
                 placeholder="MM/YY"
+                oninput="formatExpiration(event)"
                 required
               />
             </label>
-            <label class="form-label"
-              >Code
+            <label class="form-label">
+              Code
               <input
-                type="number"
+                type="text"
                 name="code"
                 id="code"
-                pattern="^[0-]"
                 minlength="3"
                 maxlength="3"
+                pattern="[0-9]{3}"
                 placeholder="123"
                 required
               />
             </label>
           </fieldset>
-          <fieldset class="checkout-summary">
+
+          <fieldset
+            class="checkout-summary"
+            id="orderSummarySection"
+            style="display: none"
+          >
             <legend>Order Summary</legend>
             <ul>
               <li>
@@ -145,9 +161,8 @@
               </li>
             </ul>
           </fieldset>
-
-          <button id="checkoutSubmit" type="submit">Checkout</button>
         </form>
+        <button id="checkoutSubmit" type="submit">Checkout</button>
       </section>
     </main>
     <footer id="main-footer"></footer>
