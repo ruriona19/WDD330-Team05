@@ -39,6 +39,17 @@ export function renderWithTemplate(template, parentElement, data, callback) {
   }
 }
 
+export function formatExpiration(event) {
+  let input = event.target.value;
+  input = input.replace(/\D/g, "");
+  
+  if (input.length > 2) {
+    input = input.slice(0, 2) + '/' + input.slice(2);
+  }
+
+  event.target.value = input;
+}
+
 async function loadTemplate(path) {
   const res = await fetch(path);
   const template = await res.text();
