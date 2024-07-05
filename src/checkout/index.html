@@ -1,25 +1,155 @@
 <!doctype html>
-
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Sleep Outside | Checkout</title>
-
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="../js/checkout.js" type="module"></script>
     <script src="../js/backpack.js" type="module"></script>
   </head>
-
   <body>
     <header class="divider" id="main-header"></header>
-    <main class="divider">
-      <section class="products">
-        <h2>Review & Place your Order</h2>
+    <main class="divider checkout">
+      <h2>Review & Place your Order</h2>
+      <section class="checkout-form">
+        <form name="checkout">
+          <fieldset>
+            <legend>Shipping</legend>
+            <div class="checkout__name">
+              <label class="form-label"
+                >First Name
+                <input
+                  type="text"
+                  name="fname"
+                  id="fname"
+                  placeholder="Joe"
+                  required
+                />
+              </label>
+              <label class="form-label"
+                >Last Name
+                <input
+                  type="text"
+                  name="lname"
+                  id="lname"
+                  placeholder="Doe"
+                  required
+                />
+              </label>
+            </div>
+            <div class="checkout__address">
+              <label class="form-label"
+                >Street
+                <input
+                  type="text"
+                  name="street"
+                  id="street"
+                  placeholder="123 Street 123 N "
+                  required
+                />
+              </label>
+              <label class="form-label"
+                >City
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="Orem"
+                  required
+                />
+              </label>
+              <label class="form-label"
+                >State
+                <input
+                  type="text"
+                  name="state"
+                  id="state"
+                  pattern="[A-Z]{2}"
+                  placeholder="UT"
+                  required
+                />
+              </label>
+              <label class="form-label"
+                >Zip
+                <input
+                  type="text"
+                  name="zip"
+                  id="zip"
+                  pattern="[0-9]{5}"
+                  placeholder="12345"
+                  required
+                />
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Payment</legend>
+            <label class="form-label"
+              >Card Number
+              <input
+                type="text"
+                name="cardNumber"
+                id="cardNumber"
+                minlength="16"
+                pattern="^[0-9]{16}"
+                placeholder="1234123412341234"
+                required
+              />
+            </label>
+            <label class="form-label"
+              >Expiration
+              <input
+                type="text"
+                name="expiration"
+                id="expiration"
+                placeholder="MM/YY"
+                required
+              />
+            </label>
+            <label class="form-label"
+              >Code
+              <input
+                type="number"
+                name="code"
+                id="code"
+                pattern="^[0-]"
+                minlength="3"
+                maxlength="3"
+                placeholder="123"
+                required
+              />
+            </label>
+          </fieldset>
+          <fieldset class="checkout-summary">
+            <legend>Order Summary</legend>
+            <ul>
+              <li>
+                <label for="cartTotal"
+                  >Item Subtotal(<span id="num-items"></span>)
+                </label>
+                <p name="cartTotal" id="cartTotal"></p>
+              </li>
+              <li>
+                <label for="shipping">Shipping Estimate</label>
+                <p id="shipping"></p>
+              </li>
+              <li>
+                <label for="tax">Tax</label>
+                <p id="tax"></p>
+              </li>
+              <li>
+                <label for="orderTotal"><b>Order Total</b></label>
+                <p id="orderTotal"></p>
+              </li>
+            </ul>
+          </fieldset>
+
+          <button id="checkoutSubmit" type="submit">Checkout</button>
+        </form>
       </section>
     </main>
-
     <footer id="main-footer"></footer>
   </body>
 </html>

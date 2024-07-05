@@ -112,7 +112,8 @@ header {
   margin-bottom: 0.5em;
 }
 
-button {
+button,
+.product-list-footer > a {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
@@ -122,6 +123,14 @@ button {
   font-size: var(--large-font);
   cursor: pointer;
 }
+
+.product-list-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em;
+}
+
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
@@ -266,12 +275,6 @@ button {
   color: #a5a5a5;
 }
 
-/* .product-price-discount {
-  font-size: 1.4em;
-  font-weight: bold;
-  display: flex;
-} */
-
 .product-price-discount {
   font-size: 1.4em;
   font-weight: bold;
@@ -295,6 +298,32 @@ button {
   border: 4px solid #ffffff;
 }
 
+/* checkout styles */
+.checkout-form {
+  padding: 0.5em;
+}
+.checkout-form label {
+  display: block;
+}
+.checkout-form input {
+  width: 100%;
+  font-size: 1.2em;
+}
+
+.checkout-summary > ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+.checkout-summary li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkout-summary input {
+  width: 25%;
+  font-size: 1em;
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
@@ -312,4 +341,8 @@ button {
 footer {
   font-size: var(--small-font);
   padding: 1em;
+}
+
+.hide {
+  display: none;
 }

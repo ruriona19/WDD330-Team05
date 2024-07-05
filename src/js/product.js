@@ -1,5 +1,5 @@
 import { getParam, loadHeaderFooter } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
+import ExternalServices from "./ExternalServices.mjs";
 import ProductDetails from "./ProductDetails.mjs";
 import getBackpackItems from "./backpack.js";
 
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   await loadHeaderFooter();
 
   const productId = getParam("product");
-  const dataSource = new ProductData();
+  const dataSource = new ExternalServices();
   const productData = await dataSource.findProductById(productId);
 
   const productDetails = new ProductDetails(productId, productData);
