@@ -16,20 +16,41 @@ function productCardTemplate(product) {
 }
 
 export default class ProductListing {
-  constructor(category, dataSource, listElement) {
+  constructor(category, dataSource, listElement, sortProductsBy = "name") {
     this.category = category;
     this.dataSource = dataSource;
     this.listElement = listElement;
+    this.sortProductsBy = sortProductsBy;
   }
 
   async init() {
-    const list = await this.dataSource.getData(this.category);
-    this.renderList(list);
+    const list = await this.getCurrentProductList();
+    const sortedList = this.sortList(list, this.sortProductsBy);
+    this.renderList(sortedList);
   }
+
+  async getCurrentProductList() {
+    const currentProductlist = await this.dataSource.getData(this.category); 
+    return currentProductlist;
+  }
+
   renderList(list) {
-    renderListWithTemplate(productCardTemplate, this.listElement, list);
+    renderListWithTemplate(productCardTemplate, this.listElement, list, "afterBegin", true);
   }
 
+  sortList(listOfProducts, sortProductsBy) {
+    let sortedProducts = [];
 
-
+    if(sortProductsBy == "name"){
+      sortedProducts = (listOfProducts || []).sort((a, b) =>
+        a.Name.localeCompare(b.Name)
+      );
+    }
+    else if(sortProductsBy == "price"){
+      sortedProducts = (listOfProducts || []).sort((a, b) =>
+        (a.FinalPrice < b.FinalPrice) - (a.FinalPrice > b.FinalPrice)
+      );
+    }
+    return sortedProducts;
+  }
 }
