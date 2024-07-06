@@ -25,14 +25,18 @@ export default class ShoppingCart {
     this.key = key;
     this.parentSelector = parentSelector;
     this.total = 0;
+    this.addEventListeners();   
+  }
 
+  addEventListeners() {
     document.addEventListener('click', (e) => {
       if (e.target.classList.contains('remove-btn')) {
         const itemId = e.target.getAttribute('data-id');
         this.removeItemFromCart(itemId);
       }
-    });   
+    });
   }
+
   calculateCartListTotal(cartListItems) {
     const amounts = cartListItems.map((item) => item.FinalPrice);
     this.total = amounts.reduce((sum, item) => sum + item);
@@ -42,8 +46,10 @@ export default class ShoppingCart {
     const cartListItems = getLocalStorage(this.key) || [];
     if (!cartListItems.length) {
       document.querySelector(".product-list").innerHTML = "<p>Your cart is empty</p>";
-      document.querySelector(".cart-total").innerHTML = "<p>Total: $0.00</p>";
+      document.querySelector(".product-list-footer").classList.add("hide");
       return;
+    } else {
+      document.querySelector(".product-list-footer").classList.remove("hide");
     }
 
     const itemMap = new Map();

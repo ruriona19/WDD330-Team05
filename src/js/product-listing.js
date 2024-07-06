@@ -19,6 +19,16 @@ async function initialize() {
   breadcrumbs.innerHTML = `${myList.category}--->${number_items.length} items`;
   // -----------------------------------------
 
+  const sorBySelect = document.querySelector("#sort");
+
+  //This event listener sort the list of product according the value selected in Sort By select element
+  sorBySelect.addEventListener("input", async (e) => {
+    const sortedProductsBy = e.target.value;
+    let currentList = await myList.getCurrentProductList();
+    let sortedList = await myList.sortList(currentList, sortedProductsBy);
+    myList.renderList(sortedList);
+  });
+
   myList.init();
 }
 
