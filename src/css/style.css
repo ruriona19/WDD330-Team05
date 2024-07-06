@@ -376,6 +376,60 @@ button,
   font-family: var(--font-body);
 }
 
+.newsletter {
+  background-color: var(--light-grey);
+  padding: 2em;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 2em auto;
+}
+
+.newsletter h2 {
+  font-size: 2em;
+  color: var(--secondary-color);
+  border-bottom: 1px solid var(--secondary-color);
+  margin-bottom: 0.5em;
+}
+
+.newsletter p {
+  font-size: 1.2em;
+  color: var(--dark-grey);
+  margin-bottom: 1.5em;
+}
+
+.newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.newsletter input[type="text"],
+.newsletter input[type="email"] {
+  padding: 0.75em;
+  font-size: 1em;
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.newsletter button {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.75em;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+  background-color: var(--primary-color);
+}
+
 @media screen and (min-width: 500px) {
   body {
     max-width: 1080px;
