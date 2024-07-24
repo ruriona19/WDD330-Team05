@@ -4,7 +4,7 @@ export default class Alert {
     }
   
     createAlertElement(alert) {
-      const alertElement = document.createElement('p');
+      const alertElement = document.createElement("p");
       alertElement.textContent = alert.message;
       alertElement.style.backgroundColor = alert.background;
       alertElement.style.color = alert.color;
@@ -13,13 +13,13 @@ export default class Alert {
   
     appendAlertsToPage() {
       if (this.alerts.length > 0) {
-        const alertList = document.createElement('section');
-        alertList.className = 'alert-list';
+        const alertList = document.createElement("section");
+        alertList.className = "alert-list";
         this.alerts.forEach(alert => {
           const alertElement = this.createAlertElement(alert);
           alertList.appendChild(alertElement);
         });
-        const mainElement = document.querySelector('main');
+        const mainElement = document.querySelector("main");
         mainElement.prepend(alertList);
       }
     }

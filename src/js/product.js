@@ -4,18 +4,16 @@ import ProductDetails from "./ProductDetails.mjs";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const dataSource = new ProductData("tents");
-  const productId = getParams('product');
+  const productId = getParams("product");
   const productData = await dataSource.findProductById(productId);
 
   const productDetails = new ProductDetails(productId, productData);
   productDetails.init();
+  const addToCartHandler = (product) => {
+    productDetails.addToCart(product.dataSource);
+  };
 
   document
     .getElementById("addToCart")
-    .addEventListener("click", (e) => addToCartHandler(e, productDetails));
-  
-  async function addToCartHandler(e, productDetails) {
-    const product = productDetails.dataSource;
-    productDetails.addToCart(product);
-  }
+    .addEventListener("click", () => addToCartHandler(productDetails));
 });
